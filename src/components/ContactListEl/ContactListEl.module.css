@@ -1,23 +1,24 @@
-.item:not(:last-child) {
-    margin-bottom: 15px;
-}
-
 .item {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+    border: 2px solid #50597b;
+    border-radius: 5px;
+    padding: 20px;
+    flex-basis: calc((100% - 3 * 20px)/4);
     transition: all 150ms linear;
+    position: relative;
 }
 
 .item:hover {
     color: #fcb150;
+    background-color: #50597b;
 }
 
 .button {
+    padding: 5px;
     background-color: transparent;
     border: none;
-    position: relative;
-    top: 3px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
     color: #fcb150;
     transition: all 150ms linear;
     font-size: 12px;
@@ -27,6 +28,6 @@
     color: #e64c65;
 }
 
-.span {
-    flex-basis: 130px;
+.info:not(:last-child) {
+    margin-bottom: 10px;
 }

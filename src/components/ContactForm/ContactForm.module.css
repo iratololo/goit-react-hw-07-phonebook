@@ -1,9 +1,14 @@
 .form {
-    max-width: 400px;
-    margin: 0 auto 30px;
+    margin-bottom: 30px;
+    padding: 50px 0 30px 0;
 }
 
 .container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.items {
     margin-bottom: 35px;
 }
 

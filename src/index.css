@@ -16,7 +16,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #1f253d;
+  /* background: #1f253d; */
+  background-color: #394264;
   color: aliceblue;
   box-sizing: border-box;
 }

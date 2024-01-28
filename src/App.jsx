@@ -9,9 +9,8 @@ import { Error } from "./components/reuse/Error/Error"
 import { Loader } from "components/reuse/Loader/Loader";
 
 import "./store/store"
-import { addContactsThunk, getContactsThunk, removeContactsThunk } from "store/contacts/thunks";
+import { getContactsThunk } from "store/contacts/thunks";
 import {selectorContacts, selectorError, selectorLoader} from "store/contacts/selectors";
-import { changeFilter } from "store/filter/sliceFilter";
 
 
 export const App = () => {
@@ -24,29 +23,17 @@ export const App = () => {
     dispatch(getContactsThunk());
   }, [dispatch]);
 
-  const createContact = (data) => {
-    dispatch(addContactsThunk(data))
-  }
-
-  const removeContact = (id) => {
-    dispatch(removeContactsThunk(id))
-  }
-
-  const handlerFilter = (value) => {
-    dispatch(changeFilter(value))
-  }
-
 
   return (
    <Container>
-      <ContactForm createContact={createContact} />
+      <ContactForm/>
       {items.length === 0 && !isLoading && !error && <Error>Contacts is empty</Error>}
       {isLoading && <Loader />}
       {error && <Error>{error}</Error>}
       {items.length !== 0 && <>
         <h2>Contacts</h2>
-          <Filter handlerFilter={handlerFilter} />
-          <ContactList removeContact={removeContact} />
+          <Filter/>
+          <ContactList/>
       </>}
       </Container>
   );

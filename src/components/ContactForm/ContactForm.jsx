@@ -1,14 +1,16 @@
-import {  useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import css from "./ContactForm.module.css"
 import {selectorContacts} from "store/contacts/selectors";
+import { addContactsThunk } from "store/contacts/thunks";
 
 
 
-export const ContactForm = ({createContact}) => {
-   const items = useSelector(selectorContacts);
+export const ContactForm = () => {
+    const items = useSelector(selectorContacts);
+    const dispatch = useDispatch();
 
     const handlerOnSubmit = (e) => {
         e.preventDefault();
@@ -23,7 +25,7 @@ export const ContactForm = ({createContact}) => {
             );
         } else {
             Notify.success('A new contact is created');
-            createContact({ name, phone})
+            dispatch(addContactsThunk({ name, phone }))
             e.target.reset()
         }
     }

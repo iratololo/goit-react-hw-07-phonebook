@@ -1,7 +1,11 @@
-import css from './Filter.module.css';
+import { useDispatch } from 'react-redux';
 
-export const Filter = ({handlerFilter}) => {
+import css from './Filter.module.css';
+import { changeFilter } from 'store/filter/sliceFilter';
+
+export const Filter = () => {
+  const dispatch = useDispatch();
   return (
-            <input onChange={({target:{value}}) => handlerFilter(value)} className={css.input} type="text" name="filter" placeholder='Find contacts by name'/>
+            <input onChange={({target:{value}}) => dispatch(changeFilter(value))} className={css.input} type="text" name="filter" placeholder='Find contacts by name'/>
         )
 }
